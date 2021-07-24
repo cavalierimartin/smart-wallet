@@ -1,0 +1,26 @@
+{
+  "wallets": [
+    {
+      "id": "abc1",
+      "name": "Home Banking Santander",
+      "description": "",
+      "balance": 150
+    },
+    {
+      "id": "sfadga",
+      "name": "Billetera física",
+      "description": "Billetera de Martín",
+      "balance": 2315
+    }
+  ],
+  "transactions": [
+    {
+      "id": "qwegasf",
+      "name": "Compra Súper",
+      "description": "Compra en la coope",
+      "date": "2020/06/19",
+      "time": "17:45",
+      "amount": -100
+    }
+  ]
+}
