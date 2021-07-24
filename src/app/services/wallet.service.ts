@@ -27,7 +27,7 @@ export class WalletService {
   }
   getWallets() {
     return this.http
-      .get<Wallet[]>(this.commonService.apiURL + '/wallet')
+      .get<Wallet[]>(this.commonService.apiURL + '/wallets')
       .pipe(retry(1), catchError(this.commonService.handleError));
   }
   updateWallet(wallet: Wallet) {

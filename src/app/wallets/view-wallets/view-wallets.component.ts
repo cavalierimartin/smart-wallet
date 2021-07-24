@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Wallet } from 'src/app/models/wallet';
+import { WalletService } from 'src/app/services/wallet.service';
 
 @Component({
   selector: 'app-view-wallets',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewWalletsComponent implements OnInit {
 
-  constructor() { }
+  walletsList: [Wallet] | any;
+
+  constructor(private walletService: WalletService) { }
 
   ngOnInit(): void {
+    this.walletService.getWallets().subscribe( wallets => {
+      this.walletsList = wallets;
+    })
   }
+
 
 }

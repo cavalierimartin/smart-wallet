@@ -1,1 +1,41 @@
-<p>view-transactions works!</p>
+<div class="card">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Movimientos</h6>
+    <div *ngIf="transactionsList; else loadingTemplate">
+      <div class="row">
+        <table class="table table-sm table-hover">
+          <tbody>
+            <tr *ngFor="let transaction of transactionsList">
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.name }}</td>
+              <td>{{ transaction.amount }}</td>
+              <td>{{ transaction.date }}</td>
+              <td>{{ transaction.time }}</td>
+              <td>{{ transaction.description }}</td>
+              <td>
+                <!-- <a class="btn btn-secondary text-white" (click)="onEdit(product)"> -->
+                <a class="btn btn-secondary text-white">
+                  <i class="far fa-edit"></i>
+                </a>
+                <!-- <a class="btn btn-danger text-white" (click)="onDelete(product.$key)"> -->
+                <a class="btn btn-danger text-white">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+                <a
+                  class="btn btn-info text-white"
+                  title="{{ transaction.description }}"
+                >
+                  <i class="fas fa-search-alt"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <app-loading></app-loading>
+</ng-template>

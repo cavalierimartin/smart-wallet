@@ -27,7 +27,7 @@ export class TransactionService {
   }
   getTransactions() {
     return this.http
-      .get<Transaction[]>(this.commonService.apiURL + '/transaction')
+      .get<Transaction[]>(this.commonService.apiURL + '/transactions')
       .pipe(retry(1), catchError(this.commonService.handleError));
   }
   updateTransaction(transaction: Transaction) {

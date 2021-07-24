@@ -12,6 +12,7 @@ import { ViewWalletsComponent } from './wallets/view-wallets/view-wallets.compon
 import { AddTransactionComponent } from './transactions/add-transaction/add-transaction.component';
 import { ViewTransactionsComponent } from './transactions/view-transactions/view-transactions.component';
 import { UpdateTransactionComponent } from './transactions/update-transaction/update-transaction.component';
+import { LoadingComponent } from './common/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UpdateTransactionComponent } from './transactions/update-transaction/up
     ViewWalletsComponent,
     AddTransactionComponent,
     ViewTransactionsComponent,
-    UpdateTransactionComponent
+    UpdateTransactionComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
