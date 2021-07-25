@@ -1,1 +1,49 @@
-<p>add-transaction works!</p>
+<!-- <form *ngIf="action != 'view'" [formGroup]="newTransactionForm"> -->
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="newTransactionForm" style="text-align: center;">
+          <label>Nombre*</label>
+          <input matInput formControlName="name" placeholder="Nombre del transacción" />
+        <br />
+
+          <label>Billetera*</label>
+          <select formControlName="walletId">
+            <option *ngFor="let wallet of wallets" [value]="wallet.id">
+              {{ wallet.name }}
+            </option>
+          </select>
+        <br />
+
+          <label>Fecha*</label>
+          <input
+            formControlName="date"
+            placeholder="Fecha de la transacción"
+          />
+        <br />
+
+          <label>Hora</label>
+          <input
+            matInput formControlName="time"
+            type="time"
+            placeholder="Hora aprox de la transacción"
+          />
+        <br />
+
+          <label>Monto*</label>
+          <input formControlName="amount" placeholder="Monto de la transacción" />
+          <!-- <mat-hint>Ingrese un " - " delante del número si es gasto</mat-hint> -->
+        <br />
+
+          <label>Descripción</label>
+          <textarea
+            matInput formControlName="description"
+            placeholder="Descripción de la transacción"
+          ></textarea>
+        <br />
+
+        <button mat-button type="button" (click)="addTransaction()">
+          Agregar Transacción
+        </button>
+      </form>
+    </div>
+  </div>
