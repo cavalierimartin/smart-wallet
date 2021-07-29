@@ -29,10 +29,11 @@
     {
       "id": "qwegasf",
       "name": "Compra Súper",
+      "walletId": "abc1",
       "description": "Compra en la coope",
       "date": "2020/06/19",
       "time": "17:45",
-      "amount": -100
+      "amount": "-101"
     },
     {
       "name": "dfs",

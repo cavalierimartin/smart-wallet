@@ -1,1 +1,50 @@
-<p>update-transaction works!</p>
+<!-- <form *ngIf="action != 'view'" [formGroup]="newTransactionForm"> -->
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="updateTransactionForm" style="text-align: center;">
+          <label>Nombre*</label>
+          <!-- input [readonly]="action != 'view'"  -->
+          <input formControlName="name" placeholder="Nombre del transacción" />
+        <br />
+
+          <label>Billetera*</label>
+          <select formControlName="walletId">
+            <option *ngFor="let wallet of wallets" [value]="wallet.id">
+              {{ wallet.name }}
+            </option>
+          </select>
+        <br />
+
+          <label>Fecha*</label>
+          <input
+            formControlName="date"
+            placeholder="Fecha de la transacción"
+          />
+        <br />
+
+          <label>Hora</label>
+          <input
+             formControlName="time"
+            type="time"
+            placeholder="Hora aprox de la transacción"
+          />
+        <br />
+
+          <label>Monto*</label>
+          <input formControlName="amount" placeholder="Monto de la transacción" />
+          <!-- <mat-hint>Ingrese un " - " delante del número si es gasto</mat-hint> -->
+        <br />
+
+          <label>Descripción</label>
+          <textarea
+             formControlName="description"
+            placeholder="Descripción de la transacción"
+          ></textarea>
+        <br />
+
+        <button mat-button type="button" (click)="updateTransaction()">
+          Actualizar Transacción
+        </button>
+      </form>
+    </div>
+  </div>
