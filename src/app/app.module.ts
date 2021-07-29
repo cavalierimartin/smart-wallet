@@ -13,6 +13,7 @@ import { AddTransactionComponent } from './transactions/add-transaction/add-tran
 import { ViewTransactionsComponent } from './transactions/view-transactions/view-transactions.component';
 import { UpdateTransactionComponent } from './transactions/update-transaction/update-transaction.component';
 import { LoadingComponent } from './common/loading/loading.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoadingComponent } from './common/loading/loading.component';
     ViewTransactionsComponent,
     UpdateTransactionComponent,
     LoadingComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

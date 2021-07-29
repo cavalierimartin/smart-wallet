@@ -11,9 +11,16 @@ import { WalletService } from 'src/app/services/wallet.service';
   styleUrls: ['./add-transaction.component.scss'],
 })
 export class AddTransactionComponent implements OnInit {
-  newTransactionForm: FormGroup | undefined;
+  newTransactionForm: FormGroup = this.formBuilder.group({
+    name: ['', Validators.required],
+    walletId: ['', Validators.required],
+    description: [''],
+    date: [Date()],
+    time: [Date()],
+    amount: ['', Validators.required],
+  });
   transaction = {} as Transaction;
-  wallets: Wallet[] | undefined;
+  wallets: Wallet[] = [];
 
   constructor(
     private transactionService: TransactionService,
@@ -23,15 +30,6 @@ export class AddTransactionComponent implements OnInit {
 
   ngOnInit() {
     this.getAllWallets();
-
-    this.newTransactionForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      walletId: ['', Validators.required],
-      description: [''],
-      date: [Date()],
-      time: [Date()],
-      amount: ['', Validators.required],
-    });
   }
 
   getAllWallets() {
@@ -43,7 +41,12 @@ export class AddTransactionComponent implements OnInit {
   addTransaction() {
     if (this.newTransactionForm?.valid) {
       console.log(this.newTransactionForm.value);
-      this.transactionService.createTransaction(this.newTransactionForm.value);
+      this.transactionService
+        .createTransaction(this.newTransactionForm.value)
+        .subscribe((value) => {
+          // #TODO: Checkear si es éxito o fallo, y mostrar el mensaje que corresponda
+          alert('Movimiento guardado con éxito!');
+        });
       this.transaction = {} as Transaction;
     }
   }

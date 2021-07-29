@@ -11,6 +11,18 @@
       "name": "Billetera física",
       "description": "Billetera de Martín",
       "balance": 2315
+    },
+    {
+      "name": "Cryto",
+      "description": "",
+      "balance": "1234",
+      "id": "IZRI61m"
+    },
+    {
+      "name": "New wallet",
+      "description": "",
+      "balance": "234",
+      "id": "V8OiTx2"
     }
   ],
   "transactions": [
@@ -21,6 +33,33 @@
       "date": "2020/06/19",
       "time": "17:45",
       "amount": -100
+    },
+    {
+      "name": "dfs",
+      "walletId": "abc1",
+      "description": "",
+      "date": "Sun Jul 25 2021 14:06:05 GMT-0300 (hora estándar de Argentina)",
+      "time": "Sun Jul 25 2021 14:06:05 GMT-0300 (hora estándar de Argentina)",
+      "amount": "2143",
+      "id": "qUVhA1X"
+    },
+    {
+      "name": "fd",
+      "walletId": "sfadga",
+      "description": "",
+      "date": "Sun Jul 25 2021 14:09:11 GMT-0300 (hora estándar de Argentina)",
+      "time": "Sun Jul 25 2021 14:09:11 GMT-0300 (hora estándar de Argentina)",
+      "amount": "1234",
+      "id": "wioX6zV"
+    },
+    {
+      "name": "adsf",
+      "walletId": "IZRI61m",
+      "description": "",
+      "date": "Wed Jul 28 2021 23:44:00 GMT-0300 (hora estándar de Argentina)",
+      "time": "01:12",
+      "amount": "12341",
+      "id": "nr0J20B"
     }
   ]
 }

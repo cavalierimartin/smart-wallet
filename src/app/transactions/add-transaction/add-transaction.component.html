@@ -3,7 +3,8 @@
     <div class="col-12">
       <form [formGroup]="newTransactionForm" style="text-align: center;">
           <label>Nombre*</label>
-          <input matInput formControlName="name" placeholder="Nombre del transacción" />
+          <!-- input [readonly]="action != 'view'"  -->
+          <input formControlName="name" placeholder="Nombre del transacción" />
         <br />
 
           <label>Billetera*</label>
@@ -23,7 +24,7 @@
 
           <label>Hora</label>
           <input
-            matInput formControlName="time"
+             formControlName="time"
             type="time"
             placeholder="Hora aprox de la transacción"
           />
@@ -36,7 +37,7 @@
 
           <label>Descripción</label>
           <textarea
-            matInput formControlName="description"
+             formControlName="description"
             placeholder="Descripción de la transacción"
           ></textarea>
         <br />
