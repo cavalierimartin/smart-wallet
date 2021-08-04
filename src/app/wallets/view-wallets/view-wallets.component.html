@@ -11,8 +11,8 @@
               <td>{{ wallet.balance }}</td>
               <td>{{ wallet.description }}</td>
               <td>
-                <!-- <a class="btn btn-secondary text-white" (click)="onEdit(product)"> -->
-                <a class="btn btn-secondary text-white">
+                <a class="btn btn-secondary text-white" routerLink="/billeteras/actualizar/{{wallet.id}}">
+                  <label>Editar</label>
                   <i class="far fa-edit"></i>
                 </a>
                 <!-- <a class="btn btn-danger text-white" (click)="onDelete(product.$key)"> -->

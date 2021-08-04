@@ -12,11 +12,11 @@ ver movimientos @transactions @services #v-1.1 {cm:2021-07-24}
 ver movimientos @transactions @components #v-1.1 {cm:2021-07-24}
 crear movimiento @transactions @components #v-1.2 {cm:2021-07-25}
 borrar movimiento @transactions @components #v-1.x
-actualiza movimiento @transactions @components #v-1.3
+actualiza movimiento @transactions @components #v-1.3{cm:2021-08-01}
 ver billeteras @wallets @components #v-1.1 {cm:2021-07-24}
 crear nueva billetera @wallets @components #v-1.2 {cm:2021-07-25}
 borrar billetera @wallets @components #v-1.x
-actualizar billetera @wallets @components #v-1.x
+actualizar billetera @wallets @components #v-1.x {cm:2021-08-02}
 
 # V-2.x
 Add angular material #v-2.x

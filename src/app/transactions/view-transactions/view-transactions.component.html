@@ -15,17 +15,20 @@
               <td>
                 <a class="btn btn-secondary text-white" routerLink="/movimientos/actualizar/{{transaction.id}}">
                   <label>Editar</label>
-                  <i class="far fa-edit"></i>
+                  <!-- <i class="far fa-edit"></i> -->
+                  <fa-icon [icon]="faEdit"></fa-icon>
                 </a>
                 <!-- <a class="btn btn-danger text-white" (click)="onDelete(product.$key)"> -->
-                <a class="btn btn-danger text-white">
-                  <i class="fas fa-trash-alt"></i>
+                <a class="btn btn-danger text-white" (click)="deleteTransaction(transaction.id)">
+                  <fa-icon [icon]="faTrashAlt"></fa-icon>
+                  <!-- <i class="fas fa-trash-alt">Borrar</i> -->
                 </a>
                 <a
                   class="btn btn-info text-white"
                   title="{{ transaction.description }}"
                 >
-                  <i class="fas fa-search-alt"></i>
+                <fa-icon [icon]="faSearch"></fa-icon>
+                  <!-- <i class="fas fa-search-alt"></i> -->
                 </a>
               </td>
             </tr>

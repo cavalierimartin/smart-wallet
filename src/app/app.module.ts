@@ -14,6 +14,7 @@ import { ViewTransactionsComponent } from './transactions/view-transactions/view
 import { UpdateTransactionComponent } from './transactions/update-transaction/update-transaction.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

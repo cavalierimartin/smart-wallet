@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   ActivatedRoute,
-  ActivatedRouteSnapshot,
   Router,
-  RouterStateSnapshot,
 } from '@angular/router';
 import { Transaction } from 'src/app/models/transaction';
 import { Wallet } from 'src/app/models/wallet';

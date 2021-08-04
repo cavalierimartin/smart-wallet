@@ -1,1 +1,27 @@
-<p>update-wallet works!</p>
+<!-- <form *ngIf="action != 'view'" [formGroup]="newWalletForm"> -->
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="updateWalletForm" style="text-align: center;">
+          <label>Nombre*</label>
+          <!-- input [readonly]="action != 'view'"  -->
+          <input formControlName="name" placeholder="Nombre de la billetera" />
+        <br />
+
+          <label>Balance*</label>
+          <input formControlName="balance" placeholder="Saldo de la cuenta" />
+          <!-- <mat-hint>Ingrese un " - " delante del número si es gasto</mat-hint> -->
+        <br />
+
+          <label>Descripción</label>
+          <textarea
+             formControlName="description"
+            placeholder="Descripción de la billetera"
+          ></textarea>
+        <br />
+
+        <button mat-button type="button" (click)="updateWallet()">
+          Actualizar Billetera
+        </button>
+      </form>
+    </div>
+  </div>

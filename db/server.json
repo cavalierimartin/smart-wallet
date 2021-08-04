@@ -2,9 +2,9 @@
   "wallets": [
     {
       "id": "abc1",
-      "name": "Home Banking Santander",
-      "description": "",
-      "balance": 150
+      "name": "Home Banking ICBC",
+      "balance": "1505",
+      "description": "<asdvgfasdf "
     },
     {
       "id": "sfadga",
@@ -27,15 +27,6 @@
   ],
   "transactions": [
     {
-      "id": "qwegasf",
-      "name": "Compra Súper",
-      "walletId": "abc1",
-      "description": "Compra en la coope",
-      "date": "2020/06/19",
-      "time": "17:45",
-      "amount": "-101"
-    },
-    {
       "name": "dfs",
       "walletId": "abc1",
       "description": "",
@@ -52,15 +43,6 @@
       "time": "Sun Jul 25 2021 14:09:11 GMT-0300 (hora estándar de Argentina)",
       "amount": "1234",
       "id": "wioX6zV"
-    },
-    {
-      "name": "adsf",
-      "walletId": "IZRI61m",
-      "description": "",
-      "date": "Wed Jul 28 2021 23:44:00 GMT-0300 (hora estándar de Argentina)",
-      "time": "01:12",
-      "amount": "12341",
-      "id": "nr0J20B"
     }
   ]
 }

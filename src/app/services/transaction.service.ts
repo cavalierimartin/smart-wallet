@@ -39,7 +39,7 @@ export class TransactionService {
       )
       .pipe(retry(1), catchError(this.commonService.handleError));
   }
-  deleteTransaction(id: string) {
+  deleteTransactionById(id: string) {
     return this.http
       .delete<Transaction>(
         this.commonService.apiURL + '/transactions/' + id,
