@@ -4,7 +4,7 @@
       "id": "abc1",
       "name": "Home Banking ICBC",
       "balance": "1505",
-      "description": "<asdvgfasdf "
+      "description": " asdv gfasdf "
     },
     {
       "id": "sfadga",
@@ -17,12 +17,6 @@
       "description": "",
       "balance": "1234",
       "id": "IZRI61m"
-    },
-    {
-      "name": "New wallet",
-      "description": "",
-      "balance": "234",
-      "id": "V8OiTx2"
     }
   ],
   "transactions": [

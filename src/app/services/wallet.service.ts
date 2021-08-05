@@ -39,7 +39,7 @@ export class WalletService {
       )
       .pipe(retry(1), catchError(this.commonService.handleError));
   }
-  deleteWallet(id: string) {
+  deleteWalletById(id: string) {
     return this.http
       .delete<Wallet>(
         this.commonService.apiURL + '/wallets/' + id,
