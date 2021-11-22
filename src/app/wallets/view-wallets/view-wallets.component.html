@@ -1,33 +1,55 @@
-<div class="card">
-  <div class="card-body">
-    <h6 class="text-center">Lista de Billeteras</h6>
-    <div *ngIf="walletsList; else loadingTemplate">
-      <div class="row">
-        <table class="table table-sm table-hover">
-          <tbody>
-            <tr *ngFor="let wallet of walletsList">
-              <td>{{ wallet.id }}</td>
-              <td>{{ wallet.name }}</td>
-              <td>{{ wallet.balance }}</td>
-              <td>{{ wallet.description }}</td>
-              <td>
-                <a class="btn btn-secondary text-white" routerLink="/billeteras/actualizar/{{wallet.id}}">
-                  <fa-icon [icon]="faEdit"></fa-icon>
-                </a>
-                <a class="btn btn-danger text-white" (click)="deleteWallet(wallet.id)">
-                  <fa-icon [icon]="faTrashAlt"></fa-icon>
-                </a>
-                <!-- <a
-                  class="btn btn-info text-white"
-                  title="{{ wallet.description }}"
-                >
-                <fa-icon [icon]="faSearch"></fa-icon>
-                </a> -->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div>
+  <h4 class="text-center">Lista de Billeteras</h4>
+  <a routerLink="/billeteras/crear"><h5>Agregar Billetera</h5></a>
+  <div *ngIf="walletsList; else loadingTemplate">
+    <div class="row">
+      <table mat-table [dataSource]="walletsList">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let wallet">{{ wallet.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let wallet">{{ wallet.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="balance">
+          <th mat-header-cell *matHeaderCellDef>Saldo</th>
+          <td mat-cell *matCellDef="let wallet">
+            <!-- {{ wallet.currency }} {{ wallet.balance }} -->
+          </td>
+          <td mat-cell *matCellDef="let wallet">{{ wallet.balance }}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Descripción</th>
+          <td mat-cell *matCellDef="let wallet">{{ wallet.description }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>actions</th>
+          <td mat-cell *matCellDef="let wallet">
+            <a
+              class="btn btn-secondary text-white"
+              routerLink="/billeteras/actualizar/{{ wallet.id }}"
+            >
+              Editar
+            </a>
+            &NonBreakingSpace;
+            <a
+              class="btn btn-danger text-white"
+              (click)="deleteWallet(wallet.id)"
+            >
+              Borrar
+            </a>
+            <!-- <a
+              class="btn btn-info text-white"
+              title="{{ wallet.description }}"
+            >
+            <fa-icon [icon]="faSearch"></fa-icon>
+            </a> -->
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let wallet; columns: columnsToDisplay"></tr>
+      </table>
     </div>
   </div>
 </div>

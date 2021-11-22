@@ -1,50 +1,111 @@
 <!-- <form *ngIf="action != 'view'" [formGroup]="newTransactionForm"> -->
-  <div class="row">
-    <div class="col-12">
-      <form [formGroup]="newTransactionForm" style="text-align: center;">
-          <label>Nombre*</label>
-          <!-- input [readonly]="action != 'view'"  -->
-          <input formControlName="name" placeholder="Nombre del transacción" />
-        <br />
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="newTransactionForm" novalidate (ngSubmit)="addTransaction()">
+      <mat-card class="shipping-card">
+        <mat-card-header>
+          <mat-card-title>Nuevo Movimiento</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Nombre de la transacción*"
+                  formControlName="name"
+                />
+                <mat-error
+                  *ngIf="
+                    newTransactionForm.controls['name'].hasError(
+                      'required'
+                    )
+                  "
+                >
+                  El nombre es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Billetera*" formControlName="walletId">
+                  <mat-option
+                    *ngFor="let wallet of wallets"
+                    [value]="wallet.id"
+                  >
+                    {{ wallet.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    newTransactionForm.controls['walletId'].hasError('required')
+                  "
+                >
+                  La billetera es <strong>obligatoria</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Fecha de la transacción"
+                  formControlName="date"
+                />
+                <mat-error
+                  *ngIf="
+                    newTransactionForm.controls['date'].hasError('required')
+                  "
+                >
+                  La fecha es <strong>obligatoria</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
 
-          <label>Billetera*</label>
-          <select formControlName="walletId">
-            <option *ngFor="let wallet of wallets" [value]="wallet.id">
-              {{ wallet.name }}
-            </option>
-          </select>
-        <br />
+            <div class="col">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Hora de la transacción"
+                  formControlName="time"
+                />
+              </mat-form-field>
+            </div>
+          </div>
 
-          <label>Fecha*</label>
-          <input
-            formControlName="date"
-            placeholder="Fecha de la transacción"
-          />
-        <br />
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Monto*" formControlName="amount" />
+              <mat-error
+                *ngIf="
+                  newTransactionForm.controls['amount'].hasError('required')
+                "
+              >
+                La fecha es <strong>obligatoria</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Descripción"
+                formControlName="description"
+              />
+            </mat-form-field>
+          </div>
+        </mat-card-content>
 
-          <label>Hora</label>
-          <input
-             formControlName="time"
-            type="time"
-            placeholder="Hora aprox de la transacción"
-          />
-        <br />
-
-          <label>Monto*</label>
-          <input formControlName="amount" placeholder="Monto de la transacción" />
-          <!-- <mat-hint>Ingrese un " - " delante del número si es gasto</mat-hint> -->
-        <br />
-
-          <label>Descripción</label>
-          <textarea
-             formControlName="description"
-            placeholder="Descripción de la transacción"
-          ></textarea>
-        <br />
-
-        <button mat-button type="button" (click)="addTransaction()">
-          Agregar Transacción
-        </button>
-      </form>
-    </div>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Submit
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
   </div>
+</div>

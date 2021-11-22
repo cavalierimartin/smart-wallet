@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormComponent } from './common/form/form.component';
 import { AddTransactionComponent } from './transactions/add-transaction/add-transaction.component';
 import { UpdateTransactionComponent } from './transactions/update-transaction/update-transaction.component';
 import { ViewTransactionsComponent } from './transactions/view-transactions/view-transactions.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
       { path: 'lista', component: ViewTransactionsComponent },
       { path: '', pathMatch: 'full', redirectTo: 'lista' },
     ],
+  },
+  {
+    path: 'a',
+    component: FormComponent,
   },
   {
     path: 'billeteras',

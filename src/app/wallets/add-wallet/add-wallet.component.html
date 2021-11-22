@@ -1,27 +1,63 @@
 <!-- <form *ngIf="action != 'view'" [formGroup]="newWalletForm"> -->
-  <div class="row">
-    <div class="col-12">
-      <form [formGroup]="newWalletForm" style="text-align: center;">
-          <label>Nombre*</label>
-          <!-- input [readonly]="action != 'view'"  -->
-          <input formControlName="name" placeholder="Nombre de la billetera" />
-        <br />
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="newWalletForm" novalidate (ngSubmit)="addWallet()">
+      <mat-card class="shipping-card">
+        <mat-card-header>
+          <mat-card-title>Crear Billetera</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Nombre de la billetera*"
+                  formControlName="name"
+                />
+                <mat-error
+                  *ngIf="newWalletForm.controls['name'].hasError('required')"
+                >
+                  El nombre es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Saldo de la billetera"
+                  formControlName="balance"
+                />
+                <mat-error
+                  *ngIf="newWalletForm.controls['balance'].hasError('required')"
+                >
+                  El nombre es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
 
-          <label>Balance*</label>
-          <input formControlName="balance" placeholder="Saldo de la cuenta" />
-          <!-- <mat-hint>Ingrese un " - " delante del número si es gasto</mat-hint> -->
-        <br />
-
-          <label>Descripción</label>
-          <textarea
-             formControlName="description"
-            placeholder="Descripción de la billetera"
-          ></textarea>
-        <br />
-
-        <button mat-button type="button" (click)="addWallet()">
-          Agregar Billetera
-        </button>
-      </form>
-    </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Descripción de la billetera*"
+                  formControlName="description"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Crear Billetera
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
   </div>
+</div>
