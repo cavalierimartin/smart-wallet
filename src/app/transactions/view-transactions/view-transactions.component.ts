@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionService } from 'src/app/services/transaction.service';
-import { faTrashAlt, faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTrashAlt,
+  faEdit,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-view-transactions',
@@ -10,10 +14,15 @@ import { faTrashAlt, faEdit, faSearch } from '@fortawesome/free-solid-svg-icons'
 })
 export class ViewTransactionsComponent implements OnInit {
   transactionsList: [Transaction] | any;
-  faTrashAlt = faTrashAlt;
-  faEdit = faEdit;
-  faSearch = faSearch;
-
+  columnsToDisplay = [
+    'id',
+    'name',
+    'amount',
+    'date',
+    'time',
+    'description',
+    'actions',
+  ];
   constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
