@@ -1,5 +1,11 @@
 # SmartWalletA12
 
+The goal of this project is to organice money (owned, invested, and more) in a way that is useful for me and a couple of persons who are looking forward to this.
+
+When the app becomes usable, I'm thinking of making it a web application, then a PWA and then an installable .apk (just for the experience).
+
+There is a todo.md in the root directory, where I'm updating all the tasks done and to do.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
 
 ## Development server
