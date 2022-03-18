@@ -1,0 +1,103 @@
+<!-- <form *ngIf="action != 'view'" [formGroup]="newWalletForm"> -->
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="newWalletForm" novalidate (ngSubmit)="addWallet()">
+      <mat-card class="shipping-card">
+        <mat-card-header>
+          <mat-card-title>Crear Billetera</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Nombre de la billetera*"
+                  formControlName="name"
+                />
+                <mat-error
+                  *ngIf="newWalletForm.controls['name'].hasError('required')"
+                >
+                  El nombre es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          Saldo de la billetera:
+          <!-- #TODO: Hacerme bonito -->
+
+          <button type="button" mat-button (click)="addBalanceBlock()">
+            Agregar Saldo
+          </button>
+          <!-- <mat-label>Monedas</mat-label> -->
+          <ng-container *ngFor="let balance of balances; index as i">
+            <ng-container
+              [ngTemplateOutlet]="currencyBlock"
+              [ngTemplateOutletContext]="{ i: i }"
+            >
+            </ng-container>
+          </ng-container>
+          <!-- <div class="col">
+          <mat-form-field class="full-width">
+            <input
+            matInput
+            placeholder="Saldo de la billetera"
+            formControlName="balance"
+                />
+                <mat-error
+                *ngIf="newWalletForm.controls['balance'].hasError('required')"
+                >
+                  El nombre es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>
+            </div> -->
+
+          <ng-template #currencyBlock let-i="i">
+            <div class="row">
+              <div class="col">
+                <mat-form-field appearance="fill">
+                  <mat-label>Moneda</mat-label>
+                  <mat-select id="{{ 'currencyId' + i }}">
+                    <mat-option
+                      *ngFor="let currency of currencies | async"
+                      [value]="currency.id"
+                    >
+                      {{ currency.shortName }}
+                    </mat-option>
+                  </mat-select>
+                  <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+                </mat-form-field>
+                &NonBreakingSpace;
+                <mat-form-field class="">
+                  <input
+                    matInput
+                    type="number"
+                    id="{{ 'currencybalance' + i }}"
+                    placeholder="Saldo de la billetera"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </ng-template>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Descripción de la billetera*"
+                  formControlName="description"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Crear Billetera
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+</div>

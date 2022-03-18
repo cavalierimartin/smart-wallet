@@ -3,20 +3,50 @@
     {
       "id": "abc1",
       "name": "Home Banking ICBC",
-      "balance": "1505",
+      "balances": [
+        {
+          "balance": "1505",
+          "currencyId": "dolaresId"
+        },
+        {
+          "currencyId": "pesosId",
+          "balance": "43243"
+        }
+      ],
       "description": " asdv gfasdf "
     },
     {
       "id": "sfadga",
       "name": "Billetera física",
       "description": "Billetera de Martín",
+      "balances": [
+        {
+          "currencyId": "pesosId",
+          "balance": "7654"
+        }
+      ],
       "balance": 2315
     },
     {
       "name": "Cryto",
       "description": "",
-      "balance": "1234",
+      "balance": "0",
+      "balances": [
+        {}
+      ],
       "id": "IZRI61m"
+    },
+    {
+      "name": "Prueba sin id",
+      "description": "asdfa",
+      "balances": [],
+      "id": "vCz2nhb"
+    },
+    {
+      "name": "asdf",
+      "description": "ads",
+      "balances": [],
+      "id": "IjAc3M7"
     }
   ],
   "transactions": [
@@ -27,7 +57,8 @@
       "date": "Sun Jul 25 2021 14:06:05 GMT-0300 (hora estándar de Argentina)",
       "time": "Sun Jul 25 2021 14:06:05 GMT-0300 (hora estándar de Argentina)",
       "amount": "2143",
-      "id": "qUVhA1X"
+      "id": "qUVhA1X",
+      "currencyId": "dolaresId"
     },
     {
       "name": "fd",
@@ -36,7 +67,31 @@
       "date": "Sun Jul 25 2021 14:09:11 GMT-0300 (hora estándar de Argentina)",
       "time": "Sun Jul 25 2021 14:09:11 GMT-0300 (hora estándar de Argentina)",
       "amount": "1234",
-      "id": "wioX6zV"
+      "id": "wioX6zV",
+      "currencyId": "pesosId"
+    }
+  ],
+  "currencies": [
+    {
+      "id": "pesosId",
+      "description": "Pesos Argentinos",
+      "shortName": "ARS",
+      "name": "Pesos",
+      "symbol": "$"
+    },
+    {
+      "id": "dolaresId",
+      "description": "Dólares Estadounidenses",
+      "shortName": "USD",
+      "name": "Dólares",
+      "symbol": "U$S"
+    },
+    {
+      "id": "mORPwp-",
+      "name": "Bitcoin",
+      "shortName": "BTC",
+      "symbol": "",
+      "description": "Criptomoneda"
     }
   ]
 }

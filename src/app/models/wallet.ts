@@ -2,6 +2,5 @@ export interface Wallet {
   id: string;
   name: string;
   description: string;
-  balance: number;
-  currencyId: string;
+  balances: [balance: number, currencyId: string];
 }

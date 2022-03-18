@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddWalletComponent } from './wallets/add-wallet/add-wallet.component';
-import { UpdateWalletComponent } from './wallets/update-wallet/update-wallet.component';
-import { ViewWalletsComponent } from './wallets/view-wallets/view-wallets.component';
-import { AddTransactionComponent } from './transactions/add-transaction/add-transaction.component';
-import { ViewTransactionsComponent } from './transactions/view-transactions/view-transactions.component';
-import { UpdateTransactionComponent } from './transactions/update-transaction/update-transaction.component';
+import { AddWalletComponent } from './components/wallets/add-wallet/add-wallet.component';
+import { UpdateWalletComponent } from './components/wallets/update-wallet/update-wallet.component';
+import { ViewWalletsComponent } from './components/wallets/view-wallets/view-wallets.component';
+import { AddTransactionComponent } from './components/transactions/add-transaction/add-transaction.component';
+import { ViewTransactionsComponent } from './components/transactions/view-transactions/view-transactions.component';
+import { UpdateTransactionComponent } from './components/transactions/update-transaction/update-transaction.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -31,6 +31,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { AddCurrencyComponent } from './components/currencies/add-currency/add-currency.component';
+import { ViewCurrenciesComponent } from './components/currencies/view-currencies/view-currencies.component';
+import { UpdateCurrencyComponent } from './components/currencies/update-currency/update-currency.component';
+import { CurrencySymbolPipe } from './pipes/currency-symbol.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { MatCardModule } from '@angular/material/card';
     NavbarComponent,
     NavigationComponent,
     FormComponent,
+    AddCurrencyComponent,
+    ViewCurrenciesComponent,
+    UpdateCurrencyComponent,
+    CurrencySymbolPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+<!-- <form *ngIf="action != 'view'" [formGroup]="updateCurrencyForm"> -->
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="updateCurrencyForm" novalidate (ngSubmit)="updateCurrency()">
+        <mat-card class="shipping-card">
+          <mat-card-header>
+            <mat-card-title>Actualizar Moneda</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    placeholder="Nombre de la moneda*"
+                    formControlName="name"
+                  />
+                  <mat-error
+                    *ngIf="updateCurrencyForm.controls['name'].hasError('required')"
+                  >
+                    El nombre es <strong>obligatorio</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    placeholder="Siglas (ej: ARS, USD)"
+                    formControlName="shortName"
+                  />
+                  <mat-error
+                    *ngIf="
+                      updateCurrencyForm.controls['shortName'].hasError('required')
+                    "
+                  >
+                    Las siglas son <strong>obligatorias</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    placeholder="Descripción de la moneda"
+                    formControlName="description"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    placeholder="Símbolo de la moneda (ej: $, U$S)"
+                    formControlName="symbol"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">
+              Actualizar Moneda
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </div>
+  </div>

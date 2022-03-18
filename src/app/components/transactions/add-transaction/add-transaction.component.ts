@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import { Currency } from 'src/app/models/currency';
 import { Transaction } from 'src/app/models/transaction';
 import { Wallet } from 'src/app/models/wallet';
+import { CurrencyService } from 'src/app/services/currency.service';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { WalletService } from 'src/app/services/wallet.service';
 
@@ -21,13 +24,15 @@ export class AddTransactionComponent implements OnInit {
   });
   transaction = {} as Transaction;
   wallets: Wallet[] = [];
+  currencies$: Observable<Currency[]> | undefined;
 
   constructor(
     private transactionService: TransactionService,
     private walletService: WalletService,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private currencyServices: CurrencyService
   ) {}
-
+    asdf = of(NaN);
   ngOnInit() {
     this.getAllWallets();
   }
@@ -36,6 +41,10 @@ export class AddTransactionComponent implements OnInit {
     this.walletService.getWallets().subscribe((wallets) => {
       this.wallets = wallets;
     });
+  }
+
+  getCurrencies() {
+    this.currencies$ = this.currencyServices.getCurrencies();
   }
 
   addTransaction() {

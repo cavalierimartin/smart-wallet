@@ -1,0 +1,62 @@
+<div>
+  <h4 class="text-center">Lista de Monedas</h4>
+  <a routerLink="/monedas/crear"><h5>Agregar Moneda</h5></a>
+  <div *ngIf="currenciesList; else loadingTemplate">
+    <div class="row">
+      <table mat-table [dataSource]="currenciesList">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let currency">{{ currency.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let currency">{{ currency.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="shortName">
+          <th mat-header-cell *matHeaderCellDef>Siglas</th>
+          <td mat-cell *matCellDef="let currency">{{ currency.shortName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Descripción</th>
+          <td mat-cell *matCellDef="let currency">
+            {{ currency.description }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Símbolo</th>
+          <td mat-cell *matCellDef="let currency">{{ currency.symbol }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>actions</th>
+          <td mat-cell *matCellDef="let currency">
+            <a
+              class="btn btn-secondary text-white"
+              routerLink="/monedas/actualizar/{{ currency.id }}"
+            >
+              Editar
+            </a>
+            &NonBreakingSpace;
+            <a
+              class="btn btn-danger text-white"
+              (click)="deleteCurrency(currency.id)"
+            >
+              Borrar
+            </a>
+            <!-- <a
+              class="btn btn-info text-white"
+              title="{{ currency.description }}"
+            >
+            <fa-icon [icon]="faSearch"></fa-icon>
+            </a> -->
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let currency; columns: columnsToDisplay"></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <app-loading></app-loading>
+</ng-template>

@@ -13,7 +13,7 @@ import {
   styleUrls: ['./view-transactions.component.scss'],
 })
 export class ViewTransactionsComponent implements OnInit {
-  transactionsList: [Transaction] | any;
+  transactionsList: Transaction[] | undefined;
   columnsToDisplay = [
     'id',
     'name',

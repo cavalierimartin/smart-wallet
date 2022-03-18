@@ -15,7 +15,9 @@
         <ng-container matColumnDef="balance">
           <th mat-header-cell *matHeaderCellDef>Saldo</th>
           <td mat-cell *matCellDef="let wallet">
-            <!-- {{ wallet.currency }} {{ wallet.balance }} -->
+            <ng-container *ngFor="let currency of wallet.balances">
+              {{ currency.currencyId | currencySymbol }} {{ currency.balance }}<br />
+            </ng-container>
           </td>
           <td mat-cell *matCellDef="let wallet">{{ wallet.balance }}</td>
         </ng-container>

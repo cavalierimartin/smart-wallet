@@ -1,7 +1,11 @@
 <!-- <form *ngIf="action != 'view'" [formGroup]="newTransactionForm"> -->
 <div class="row">
   <div class="col-12">
-    <form [formGroup]="newTransactionForm" novalidate (ngSubmit)="addTransaction()">
+    <form
+      [formGroup]="newTransactionForm"
+      novalidate
+      (ngSubmit)="addTransaction()"
+    >
       <mat-card class="shipping-card">
         <mat-card-header>
           <mat-card-title>Nuevo Movimiento</mat-card-title>
@@ -17,9 +21,7 @@
                 />
                 <mat-error
                   *ngIf="
-                    newTransactionForm.controls['name'].hasError(
-                      'required'
-                    )
+                    newTransactionForm.controls['name'].hasError('required')
                   "
                 >
                   El nombre es <strong>obligatorio</strong>
@@ -77,17 +79,33 @@
             </div>
           </div>
 
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Monto*" formControlName="amount" />
-              <mat-error
-                *ngIf="
-                  newTransactionForm.controls['amount'].hasError('required')
-                "
-              >
-                La fecha es <strong>obligatoria</strong>
-              </mat-error>
-            </mat-form-field>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="fill">
+                <mat-label>Moneda</mat-label>
+                <mat-select>
+                  <mat-option
+                    *ngFor="let currency of currencies$ | async"
+                    [value]="currency.id"
+                  >
+                    {{ currency.shortName }}
+                  </mat-option>
+                </mat-select>
+                <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+              </mat-form-field>
+              {{ asdf | async }}
+              &NonBreakingSpace;
+              <mat-form-field class="">
+                <input matInput placeholder="Monto*" formControlName="amount" />
+                <mat-error
+                  *ngIf="
+                    newTransactionForm.controls['amount'].hasError('required')
+                  "
+                >
+                  La fecha es <strong>obligatoria</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
           </div>
           <div class="col">
             <mat-form-field class="full-width">

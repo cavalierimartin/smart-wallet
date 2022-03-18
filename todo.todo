@@ -48,9 +48,16 @@ Revisar y corregir todos los flujos (ux) que interaccionan con la base
 # V-5.x
 
 Testing #v-5.x
+Agregar handle de unsubscriptions
+Migrar interfaces a clases
+Unify add's and update's in the same file (they re almost the same)
+Create pipe to get currency symbol (if exists), otherwise, the shortName
+En el agregar/modificar saldo de las wallets, permitir borrar una currency con su saldo
+---
 
 Proyecto fork:
 
 # V-x
 
+Migrar interfaces a clases
 Hacer que los crud sean genéricos

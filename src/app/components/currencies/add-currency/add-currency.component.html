@@ -1,10 +1,10 @@
-<!-- <form *ngIf="action != 'view'" [formGroup]="newWalletForm"> -->
+<!-- <form *ngIf="action != 'view'" [formGroup]="newCurrencyForm"> -->
 <div class="row">
   <div class="col-12">
-    <form [formGroup]="newWalletForm" novalidate (ngSubmit)="addWallet()">
+    <form [formGroup]="newCurrencyForm" novalidate (ngSubmit)="addCurrency()">
       <mat-card class="shipping-card">
         <mat-card-header>
-          <mat-card-title>Crear Billetera</mat-card-title>
+          <mat-card-title>Crear Moneda</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <div class="row">
@@ -12,11 +12,11 @@
               <mat-form-field class="full-width">
                 <input
                   matInput
-                  placeholder="Nombre de la billetera*"
+                  placeholder="Nombre de la moneda*"
                   formControlName="name"
                 />
                 <mat-error
-                  *ngIf="newWalletForm.controls['name'].hasError('required')"
+                  *ngIf="newCurrencyForm.controls['name'].hasError('required')"
                 >
                   El nombre es <strong>obligatorio</strong>
                 </mat-error>
@@ -28,13 +28,15 @@
               <mat-form-field class="full-width">
                 <input
                   matInput
-                  placeholder="Saldo de la billetera"
-                  formControlName="balance"
+                  placeholder="Siglas (ej: ARS, USD)"
+                  formControlName="shortName"
                 />
                 <mat-error
-                  *ngIf="newWalletForm.controls['balance'].hasError('required')"
+                  *ngIf="
+                    newCurrencyForm.controls['shortName'].hasError('required')
+                  "
                 >
-                  El nombre es <strong>obligatorio</strong>
+                  Las siglas son <strong>obligatorias</strong>
                 </mat-error>
               </mat-form-field>
             </div>
@@ -45,8 +47,19 @@
               <mat-form-field class="full-width">
                 <input
                   matInput
-                  placeholder="Descripción de la billetera*"
+                  placeholder="Descripción de la moneda"
                   formControlName="description"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  placeholder="Símbolo de la moneda (ej: $, U$S)"
+                  formControlName="symbol"
                 />
               </mat-form-field>
             </div>
@@ -54,7 +67,7 @@
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button color="primary" type="submit">
-            Crear Billetera
+            Crear Moneda
           </button>
         </mat-card-actions>
       </mat-card>
